@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarjeta para Ti</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body class="bg-pink-100 flex items-center justify-center min-h-screen p-4">
+
+  <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm w-full relative fade-in">
+    
+    <!-- Video (sin autoplay) -->
+    <video id="miVideo" loop controls class="rounded-full mx-auto mb-4 border-4 border-pink-300 w-32 h-32 object-cover">
+      <source src="ceci.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+    
+    <h1 class="text-2xl font-bold text-pink-600 mb-2">feliz cumpleaños, hermosa </h1>
+    <p id="mensaje" class="text-gray-700 hidden">Quería recordarte lo maravillosa que eres, no solo por lo que haces, sino por todo lo que eres. Tu risa ilumina, tu bondad inspira y tu existencia hace que el mundo sea un lugar más bonito. Gracias por ser tú, tan única, tan especial. Eres increíble y quería recordártelo con este detallito 💖</p>
+    <button onclick="mostrarMensaje()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition">Ver mensaje</button>
+
+    <!-- Corazón flotante -->
+    <div class="absolute top-0 right-4 float text-pink-400 text-4xl animate-pulse">💗</div>
+  </div>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById("mensaje").classList.remove("hidden");
+      
+      // Reproducir el video
+      const video = document.getElementById("miVideo");
+      video.play();
+    }
+  </script>
+</body>
+</html>
